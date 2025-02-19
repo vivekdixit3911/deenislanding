@@ -26,12 +26,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';  // Gmail SMTP server
+        $mail->Host = 'mail.deenislawchamberandservices.com';  // Updated SMTP server
         $mail->SMTPAuth = true;
         $mail->Username = 'deenis@deenislawchamberandservices.com';  // Your email
         $mail->Password = 'Deenis@2024';  // Your email password (Replace with actual password)
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;  // Correct port for STARTTLS
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        $mail->Port = 465;  // Correct port for SMTPS
 
         $mail->setFrom('deenis@deenislawchamberandservices.com', 'Deenis Law Chamber');
         $mail->addAddress('Deenis.group2000@gmail.com', 'Deenis Law Chamber');
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                        <strong>Message:</strong> $message";
 
         $mail->send();
-        echo "Message has been sent successfully.";
+        echo "We have received your message. We will reply shortly.";
     } catch (Exception $e) {
         error_log("Mailer Error: " . $mail->ErrorInfo);
         echo "Message could not be sent. Please try again later.";
@@ -53,8 +53,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     echo "No POST request received.";
 }
-
-
-
-// hi hih hi  hi i hihihihihihi to ms aapko kya karna hai ye wali file jo hai send.php ye wali file replace kar deni hai wahi pe bass ? thi, hai devi
-// chala
+?>
